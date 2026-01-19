@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page de connexion sécurisée pour accéder à votre espace personnel.">
+    <title>Connexion | Espace Membre</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="background-orb orb-1"></div>
+    <div class="background-orb orb-2"></div>
+    <div class="background-orb orb-3"></div>
+
+    <main class="auth-container fade-in">
+        <header class="auth-header">
+            <h1>Bienvenue</h1>
+            <p>Connectez-vous pour continuer</p>
+        </header>
+
+        <form id="loginForm" action="#" method="POST">
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" id="email" class="form-input" placeholder="exemple@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-group">
+                    <input type="checkbox" id="remember">
+                    <span>Se souvenir de moi</span>
+                </label>
+                <a href="#" class="auth-link">Mot de passe oublié ?</a>
+            </div>
+
+            <button type="submit" class="submit-btn">Se connecter</button>
+        </form>
+
+        <footer class="auth-footer">
+            <p>Pas encore de compte ? <a href="register.html" class="auth-link">S'inscrire</a></p>
+        </footer>
+    </main>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

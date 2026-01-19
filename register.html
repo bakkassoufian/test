@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créez votre compte pour accéder à toutes les fonctionnalités de la plateforme.">
+    <title>Inscription | Créer un compte</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="background-orb orb-1"></div>
+    <div class="background-orb orb-2"></div>
+    <!-- Different orb position for variety -->
+    <div class="background-orb orb-3" style="top: 20%; left: 80%;"></div>
+
+    <main class="auth-container fade-in">
+        <header class="auth-header">
+            <h1>Créer un compte</h1>
+            <p>Rejoignez notre communauté aujourd'hui</p>
+        </header>
+
+        <form id="registerForm" action="#" method="POST">
+            <div class="form-group">
+                <label for="fullname">Nom complet</label>
+                <input type="text" id="fullname" class="form-input" placeholder="Jean Dupont" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" id="email" class="form-input" placeholder="exemple@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirmer le mot de passe</label>
+                <input type="password" id="confirm-password" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="submit-btn" style="margin-top: 2rem;">S'inscrire</button>
+        </form>
+
+        <footer class="auth-footer">
+            <p>Déjà un compte ? <a href="index.html" class="auth-link">Se connecter</a></p>
+        </footer>
+    </main>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>
