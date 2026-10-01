@@ -6,7 +6,8 @@ import re
 BRAND = "AI Content Creator Starter Kit"
 
 # Anything in square brackets written in capitals is a fill-in field, e.g. [NICHE].
-PH_RE = re.compile(r"\[([A-Z0-9][A-Z0-9 /&'\-]*)\]")
+# Arabic placeholders such as [المجال] are supported for the Arabic edition.
+PH_RE = re.compile(r"\[([A-Z0-9\u0600-\u06FF][A-Z0-9 /&'\-\u0600-\u06FF]*)\]")
 
 
 def esc(s):
@@ -29,13 +30,15 @@ def placeholders(s):
     return list(dict.fromkeys(PH_RE.findall(s)))
 
 
-def document(title, sections, orientation="portrait"):
+def document(title, sections, orientation="portrait", lang="en", brand=BRAND):
+    rtl = lang == "ar"
+    extra = '<link rel="stylesheet" href="../rtl.css">' if rtl else ""
     return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>{esc(title)}</title>
-<link rel="stylesheet" href="../styles.css">
+<html lang="{lang}" dir="{'rtl' if rtl else 'ltr'}"><head><meta charset="utf-8"><title>{esc(title)}</title>
+<link rel="stylesheet" href="../styles.css">{extra}
 <style>@page {{ size: A4 {orientation}; margin: 0; }}</style>
 </head>
-<body class="{orientation}" data-doc="{attr(title)}">
+<body class="{orientation}{' rtl' if rtl else ''}" data-doc="{attr(title)}" data-brand="{attr(brand)}">
 <div id="source">
 {''.join(sections)}
 </div>
@@ -53,22 +56,26 @@ def flow(section_title, blocks, brk=True):
     return f'<section class="flow" data-section="{attr(section_title)}"{extra}>{"".join(blocks)}</section>'
 
 
-def doc_cover(num, title, subtitle, stats, kicker=None, extra_class=""):
+COVER_LABELS = dict(brand=BRAND, file="File {num} / 10", kicker="File {num}", tagline="Create. Plan. Publish. Grow.", usage="For personal and client use")
+
+
+def doc_cover(num, title, subtitle, stats, kicker=None, extra_class="", labels=None):
     """Dark cover used by files 02–10."""
+    L = labels or COVER_LABELS
     stats_html = "".join(f'<div class="stat"><div class="v">{esc(v)}</div><div class="l">{esc(l)}</div></div>' for v, l in stats)
     return full(
         f"""
 <div class="grid-lines"></div><div class="glow"></div>
-<div class="topline" style="position:relative"><span class="b">{BRAND}</span><span>File {num} / 10</span></div>
+<div class="topline" style="position:relative"><span class="b">{esc(L['brand'])}</span><span>{esc(L['file'].format(num=num))}</span></div>
 <div class="bignum">{num}</div>
 <div class="main">
-  <div class="kicker">{esc(kicker or 'File ' + num)}</div>
+  <div class="kicker">{esc(kicker or L['kicker'].format(num=num))}</div>
   <h1>{title}</h1>
   <div class="sub">{rich(subtitle)}</div>
   <div class="rule"></div>
   <div class="stats">{stats_html}</div>
 </div>
-<div class="bottom"><span>Create. Plan. Publish. Grow.</span><span>For personal and client use</span></div>
+<div class="bottom"><span>{esc(L['tagline'])}</span><span>{esc(L['usage'])}</span></div>
 """,
         "cover " + extra_class,
     )

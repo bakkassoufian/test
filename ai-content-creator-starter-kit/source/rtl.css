@@ -1,0 +1,70 @@
+/* Arabic edition: right-to-left overrides on top of styles.css. */
+
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 400; src: url("fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 500; src: url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 600; src: url("fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 700; src: url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 400; src: url("fonts/ibm-plex-sans-arabic-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 500; src: url("fonts/ibm-plex-sans-arabic-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 600; src: url("fonts/ibm-plex-sans-arabic-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 700; src: url("fonts/ibm-plex-sans-arabic-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Cairo"; font-weight: 600; src: url("fonts/cairo-arabic-600-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "Cairo"; font-weight: 700; src: url("fonts/cairo-arabic-700-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "Cairo"; font-weight: 800; src: url("fonts/cairo-arabic-800-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: "Cairo"; font-weight: 600; src: url("fonts/cairo-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Cairo"; font-weight: 700; src: url("fonts/cairo-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Cairo"; font-weight: 800; src: url("fonts/cairo-latin-800-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --display: "Cairo", "IBM Plex Sans Arabic", sans-serif;
+  --sans: "IBM Plex Sans Arabic", "Inter", sans-serif;
+  /* Arabic has no monospace companion; labels use the text face instead. */
+  --mono: "IBM Plex Sans Arabic", "JetBrains Mono", sans-serif;
+}
+
+/* Letter-spacing and capitals break Arabic letter joining. */
+body.rtl, body.rtl * { letter-spacing: 0 !important; text-transform: none !important; }
+body.rtl { font-size: 10.2pt; line-height: 1.8; }
+body.rtl #source { left: auto; right: -9999px; }
+
+body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4 { line-height: 1.35; font-weight: 700; }
+body.rtl .page-title { font-size: 23pt; }
+body.rtl .lead { font-size: 11pt; line-height: 1.75; }
+body.rtl .eyebrow, body.rtl .card .tag, body.rtl .callout .label, body.rtl .chip, body.rtl .page-header .brand, body.rtl .page-header .sect,
+body.rtl .page-footer, body.rtl .section-head .k, body.rtl .cover .kicker, body.rtl .cover .topline, body.rtl .cover .bottom, body.rtl .cover .stat .l,
+body.rtl .compare .label, body.rtl table.t th, body.rtl table.cal th, body.rtl .pcard .body .lbl, body.rtl .pcard .cust b, body.rtl .idea .meta b,
+body.rtl .hook .ex b, body.rtl .hook .fit b, body.rtl .cta .when b, body.rtl .icard .foot b, body.rtl .copy-block .row b, body.rtl .toc-row .c,
+body.rtl .week .a strong, body.rtl .pillar, body.rtl .tracker .cell .fmt, body.rtl .tpl-slide .sn { font-weight: 600; }
+body.rtl .eyebrow { font-size: 8.4pt; }
+body.rtl .page-header .brand, body.rtl .page-header .sect, body.rtl .page-footer { font-size: 7.6pt; }
+body.rtl .card .tag, body.rtl .callout .label, body.rtl .compare .label, body.rtl .pcard .body .lbl, body.rtl .pcard .cust b,
+body.rtl .idea .meta b, body.rtl .hook .ex b, body.rtl .hook .fit b, body.rtl .cta .when b, body.rtl .icard .foot b { font-size: 7.4pt; }
+body.rtl table.t th, body.rtl table.cal th { font-size: 7.6pt; text-align: right; }
+body.rtl .chip { font-size: 7.4pt; }
+
+/* Mirror direction-dependent details. */
+body.rtl .page-header .brand::before { margin-right: 0; margin-left: 2.2mm; }
+body.rtl .cover .topline .b::before { margin-right: 0; margin-left: 2.4mm; }
+body.rtl ul.bullets li { padding-left: 0; padding-right: 5mm; }
+body.rtl ul.bullets li::before { left: auto; right: .4mm; top: 2.75mm; }
+body.rtl .callout { border-left: 0; border-right: 1mm solid var(--accent); border-radius: 2mm 0 0 2mm; }
+body.rtl .flow-step::before { left: auto; right: 5.5mm; }
+body.rtl .big-quote { border-left: 0; padding-left: 0; border-right: 1.2mm solid var(--accent); padding-right: 6mm; line-height: 1.6; }
+body.rtl .section-head .count { right: auto; left: 8mm; }
+body.rtl .pcard .use { margin-left: 0; margin-right: auto; }
+body.rtl .cover .bignum { right: auto; left: 12mm; }
+body.rtl .cover .glow { right: auto; left: -60mm; }
+body.rtl .cover h1 { line-height: 1.25; font-size: 40pt; }
+body.rtl .cover.hero h1 { font-size: 46pt; }
+body.rtl .cover .sub { line-height: 1.7; }
+body.rtl .section-head h2 { font-size: 20pt; }
+body.rtl .pcard .body, body.rtl .card p, body.rtl .idea p { line-height: 1.75; }
+body.rtl .hook .line { font-size: 12.4pt; line-height: 1.55; }
+body.rtl .cta .line { line-height: 1.6; }
+body.rtl .tpl-item .cap { line-height: 1.5; }
+body.rtl .flow-step h4 { margin-top: 1mm; }
+
+/* Image prompts stay in English (image tools understand English best). */
+body.rtl .icard .body.en { direction: ltr; text-align: left; font-family: "JetBrains Mono", monospace; line-height: 1.6; }
+body.rtl .icard .body.en .ph { font-family: "JetBrains Mono", monospace; }
+body.rtl .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }

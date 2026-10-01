@@ -1,14 +1,17 @@
 // Renders every document listed in out/manifest.json to PDF, saves page
 // snapshots used by the Gumroad preview images, then renders those images.
 //
-// Usage: node render.cjs            (run build.py first)
+// Usage: node render.cjs                      (run build.py first)
+//        node render.cjs manifest-ar.json     (run build_ar.py first)
 const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
 const SRC = __dirname;
 const OUT = path.join(SRC, "out");
-const manifest = JSON.parse(fs.readFileSync(path.join(OUT, "manifest.json"), "utf8"));
+// Optional argument: another manifest in out/, e.g. "manifest-ar.json".
+const MANIFEST = process.argv[2] || "manifest.json";
+const manifest = JSON.parse(fs.readFileSync(path.join(OUT, MANIFEST), "utf8"));
 
 async function renderDocs(browser) {
   const failures = [];
@@ -33,7 +36,7 @@ async function renderDocs(browser) {
     doc.pages = layout.pages;
   }
   await page.close();
-  fs.writeFileSync(path.join(OUT, "page-counts.json"), JSON.stringify(manifest.documents.map((d) => ({ pdf: path.basename(d.pdf), pages: d.pages })), null, 2));
+  fs.writeFileSync(path.join(OUT, MANIFEST.replace("manifest", "page-counts")), JSON.stringify(manifest.documents.map((d) => ({ pdf: path.basename(d.pdf), pages: d.pages })), null, 2));
   return failures;
 }
 

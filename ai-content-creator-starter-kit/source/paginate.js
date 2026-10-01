@@ -23,9 +23,10 @@
     const page = document.createElement("div");
     page.className = "page";
     page.innerHTML =
-      '<div class="page-header"><span class="brand">AI Content Creator Starter Kit</span><span class="sect"></span></div>' +
+      '<div class="page-header"><span class="brand"></span><span class="sect"></span></div>' +
       '<div class="page-rule"></div><div class="page-body"></div>' +
       '<div class="page-footer"><span class="doc"></span><span class="num"></span></div>';
+    page.querySelector(".brand").textContent = document.body.dataset.brand || "";
     page.querySelector(".sect").textContent = title;
     page.querySelector(".doc").textContent = docTitle;
     book.appendChild(page);

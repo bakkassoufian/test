@@ -23,8 +23,20 @@ ai-content-creator-starter-kit/
 │   ├── Gumroad Cover Specification.md
 │   ├── Launch Marketing Pack.md
 │   └── images/                            ← cover, thumbnail and 5 preview images
+├── arabic/                                ← Arabic edition (right-to-left), same structure
+│   ├── حقيبة صانع المحتوى بالذكاء الاصطناعي/   ← the 10 Arabic PDFs
+│   ├── AI-Content-Creator-Starter-Kit-Arabic.zip
+│   └── Seller Kit/                        ← Arabic sales copy, cover spec, launch pack, images
 └── source/                                ← everything needed to edit and rebuild the PDFs
 ```
+
+## Arabic edition
+
+The Arabic edition is written in Modern Standard Arabic (not machine-translated) and laid out right-to-left with Cairo and IBM Plex Sans Arabic. It has the same structure, counts and numbering as the English edition, so `Prompt 040` and `برومبت 040` are the same prompt.
+
+The 30 image prompts stay in English, with Arabic titles, uses and tips. Image generators, Midjourney especially, follow English prompts much more reliably.
+
+Arabic content lives in `source/ar/`: `content/*.py` holds the data, `guide.py` is File 01, `docs.py` covers Files 02–06, 08 and 09, `bespoke.py` covers Files 07 and 10, and `marketing.py` builds the Gumroad images. The right-to-left styling is in `source/rtl.css`.
 
 ## Editing the content
 
@@ -53,7 +65,7 @@ cd source
 ./build.sh
 ```
 
-`build.sh` runs the quality checks, regenerates every PDF and image, and recreates the zip.
+`build.sh` runs the quality checks, regenerates every PDF and image for both editions, and recreates both zips. The Arabic edition alone builds with `python3 build_ar.py && node render.cjs manifest-ar.json`.
 
 The build **fails** if any of these is not true:
 
@@ -64,7 +76,7 @@ The build **fails** if any of these is not true:
 - every cross-reference (for example “Prompt 022” in the calendar) points to an item that exists. References are written by title and numbered automatically.
 - no content overflows a page
 
-Fonts (Inter, Space Grotesk and JetBrains Mono) are licensed under the SIL Open Font License, which allows embedding them in commercial PDFs. The license files are in `source/fonts/`.
+Fonts (Inter, Space Grotesk, JetBrains Mono, Cairo and IBM Plex Sans Arabic) are licensed under the SIL Open Font License, which allows embedding them in commercial PDFs. The license files are in `source/fonts/`.
 
 ## Before you sell
 

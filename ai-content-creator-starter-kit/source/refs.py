@@ -19,21 +19,30 @@ def _number(categories, title_of=lambda item: item[0]):
     return index
 
 
-PROMPTS = _number(prompts.CATEGORIES)
-IDEAS = _number(ideas.CATEGORIES)
-HOOKS = _number(hooks.CATEGORIES)
-TEMPLATES = {t["name"]: i for i, t in enumerate(templates.TEMPLATES, 1)}
-
-_KINDS = {"prompt": ("Prompt", PROMPTS), "idea": ("Idea", IDEAS), "hook": ("Hook", HOOKS), "template": ("Template", TEMPLATES)}
+EN_LABELS = {"prompt": "Prompt", "idea": "Idea", "hook": "Hook", "template": "Template"}
 
 
-def ref(kind, title):
-    label, index = _KINDS[kind]
-    if title not in index:
-        raise KeyError(f"Broken reference: {kind} “{title}”")
-    n = index[title]
-    # Templates and hooks are numbered 01–15 and 01–50 in their files.
-    return f"{label} {n:02d}" if kind in ("template", "hook") else f"{label} {n:03d}"
+def make_ref(prompts_mod, ideas_mod, hooks_mod, templates_mod, labels=EN_LABELS):
+    """Return ref(kind, title) for one edition of the kit."""
+    indexes = {
+        "prompt": _number(prompts_mod.CATEGORIES),
+        "idea": _number(ideas_mod.CATEGORIES),
+        "hook": _number(hooks_mod.CATEGORIES),
+        "template": {t["name"]: i for i, t in enumerate(templates_mod.TEMPLATES, 1)},
+    }
+
+    def ref(kind, title):
+        index = indexes[kind]
+        if title not in index:
+            raise KeyError(f"Broken reference: {kind} “{title}”")
+        n = index[title]
+        # Templates and hooks are numbered 01–15 and 01–50 in their files.
+        return f"{labels[kind]} {n:02d}" if kind in ("template", "hook") else f"{labels[kind]} {n:03d}"
+
+    return ref
+
+
+ref = make_ref(prompts, ideas, hooks, templates)
 
 
 def pref(title):

@@ -382,7 +382,9 @@ def images_doc():
 FORBIDDEN = [r"\bTODO\b", r"\bTBD\b", r"lorem", r"\bXXX\b", r"\{\{", r"game-changer(?![”\"])", r"in today’s fast-paced world(?!…)", r"\bunlock your\b"]
 
 
-def qc():
+def qc(prompts=prompts, ideas=ideas, hooks=hooks, ctas=ctas, image_prompts=image_prompts, templates=templates,
+       calendar=calendar, ref=ref, hooks_without_placeholder=("client asked me",)):
+    """Content checks shared by every edition; pass another edition's modules to check it."""
     problems = []
 
     def count(name, cats, expected, per_cat=None):
@@ -440,7 +442,7 @@ def qc():
         for tpl, ex, _ in c[2]:
             if placeholders(ex) or "[" in ex:
                 problems.append(f"Hook example contains a placeholder: {ex}")
-            if not placeholders(tpl) and "client asked me" not in tpl:
+            if not placeholders(tpl) and not any(x in tpl for x in hooks_without_placeholder):
                 problems.append(f"Hook template has no placeholder: {tpl}")
 
     # Calendar references resolve (ref() raises on a broken one).
