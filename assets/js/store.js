@@ -23,12 +23,12 @@ const PRODUCTS = [
         image: '',
     },
     {
-        title: 'Guide : lancer son produit numérique',
-        description: 'Un e-book étape par étape pour créer, fixer le prix et vendre votre premier produit.',
-        price: 15,
+        title: 'Your First Digital Product',
+        description: 'E-book (en anglais) : créer, lancer et vendre votre premier produit numérique sur Gumroad. Plan de 30 jours + 3 fiches pratiques.',
+        price: 12,
         category: 'E-books',
-        permalink: '',
-        image: '',
+        permalink: 'first-digital-product',
+        image: 'gumroad/dist/gumroad-cover.png',
     },
     {
         title: 'Kit UI Glassmorphism',

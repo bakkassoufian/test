@@ -1,0 +1,368 @@
+@import url('fonts.css');
+
+:root {
+    --ink: #0f172a;
+    --body: #334155;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --soft: #f5f3ff;
+    --violet: #7c3aed;
+    --indigo: #6366f1;
+    --pink: #db2777;
+    --cyan: #06b6d4;
+    --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+@page {
+    size: A4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+body {
+    font-family: 'Inter', 'Liberation Sans', sans-serif;
+    color: var(--body);
+    font-size: 10pt;
+    line-height: 1.55;
+    background: #fff;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Outfit', 'Liberation Sans', sans-serif;
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 14.5pt;
+    margin: 1.3em 0 0.45em;
+    break-after: avoid;
+}
+
+h3 {
+    font-size: 11.5pt;
+    margin: 1.1em 0 0.35em;
+    break-after: avoid;
+}
+
+p {
+    margin-bottom: 0.7em;
+}
+
+ul, ol {
+    margin: 0 0 0.9em 1.3em;
+}
+
+li {
+    margin-bottom: 0.2em;
+}
+
+strong {
+    color: var(--ink);
+}
+
+a {
+    color: var(--violet);
+    text-decoration: none;
+}
+
+/* ---------- Chapter opener ---------- */
+.chapter {
+    break-before: page;
+}
+
+.chapter-head {
+    margin-bottom: 1.2em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid var(--line);
+}
+
+.chapter-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 11pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--violet);
+}
+
+.chapter-head h1 {
+    font-size: 28pt;
+    font-weight: 700;
+    margin: 0.15em 0 0.3em;
+}
+
+.chapter-head .lead {
+    font-size: 12pt;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* ---------- Boxes ---------- */
+.box {
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 1em 0;
+    break-inside: avoid;
+}
+
+.box p:last-child, .box ul:last-child, .box ol:last-child {
+    margin-bottom: 0;
+}
+
+.box-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4em;
+}
+
+.tip {
+    background: var(--soft);
+    border-left: 4px solid var(--violet);
+}
+
+.tip .box-title { color: var(--violet); }
+
+.warn {
+    background: #fff7ed;
+    border-left: 4px solid #f97316;
+}
+
+.warn .box-title { color: #c2410c; }
+
+.example {
+    background: #ecfeff;
+    border-left: 4px solid var(--cyan);
+}
+
+.example .box-title { color: #0e7490; }
+
+.action {
+    background: var(--ink);
+    color: #e2e8f0;
+}
+
+.action .box-title {
+    color: #c4b5fd;
+}
+
+.action strong { color: #fff; }
+
+.formula {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+    background: var(--soft);
+    border: 1px dashed #c4b5fd;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 1em 0;
+    break-inside: avoid;
+}
+
+.formula span {
+    color: var(--violet);
+}
+
+/* ---------- Tables ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0 1.4em;
+    font-size: 9.5pt;
+    break-inside: avoid;
+}
+
+th {
+    text-align: left;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    background: var(--ink);
+    padding: 8px 10px;
+}
+
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+
+td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+/* ---------- Checklists & worksheets ---------- */
+.checklist {
+    list-style: none;
+    margin-left: 0;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 0.5em;
+}
+
+.checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid var(--violet);
+    border-radius: 4px;
+}
+
+.field {
+    margin: 0.9em 0 1.2em;
+    break-inside: avoid;
+}
+
+.field-label {
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2em;
+}
+
+.field-hint {
+    font-size: 9pt;
+    color: var(--muted);
+}
+
+.lines {
+    margin-top: 6px;
+}
+
+.lines div {
+    height: 26px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.week {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 16px 4px;
+    margin-bottom: 0.8em;
+    break-inside: avoid;
+}
+
+.week h3 {
+    margin-top: 0;
+}
+
+.week h3 span {
+    color: var(--violet);
+}
+
+/* ---------- Table of contents ---------- */
+.toc {
+    list-style: none;
+    margin: 0;
+}
+
+.toc li {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    margin: 0;
+}
+
+.toc .n {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--violet);
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.toc a {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.toc .d {
+    color: var(--muted);
+    font-size: 9pt;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* ---------- Misc ---------- */
+.steps {
+    counter-reset: step;
+    list-style: none;
+    margin-left: 0;
+}
+
+.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 0.8em;
+}
+
+.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 9.5pt;
+    display: grid;
+    place-items: center;
+}
+
+.template {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0.9em 0;
+    break-inside: avoid;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.closing {
+    text-align: center;
+    padding-top: 30%;
+}
+
+.closing h1 {
+    font-size: 30pt;
+    margin-bottom: 0.4em;
+}
+
+.closing p {
+    max-width: 420px;
+    margin: 0 auto 0.9em;
+}

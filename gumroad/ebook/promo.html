@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Promo image</title>
+<!--
+    Renders the Gumroad cover (wide) and thumbnail (square) images.
+    promo.html?mode=wide   → 1280 × 720
+    promo.html?mode=square → 600 × 600
+    The book cover is embedded from cover.html so both always match.
+-->
+<style>
+    @import url('fonts.css');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Outfit', sans-serif;
+        color: #f8fafc;
+        background:
+            radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.55) 0, rgba(79, 70, 229, 0) 45%),
+            radial-gradient(circle at 100% 100%, rgba(219, 39, 119, 0.45) 0, rgba(219, 39, 119, 0) 45%),
+            #0b1120;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    /* A4 cover is 794 × 1123 CSS px; it is scaled down inside .book */
+    .book {
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: 6px 14px 14px 6px;
+        box-shadow: -18px 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        position: relative;
+    }
+
+    .book::after {
+        /* spine shading */
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5%;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0));
+    }
+
+    .book iframe {
+        width: 794px;
+        height: 1123px;
+        border: 0;
+        transform-origin: 0 0;
+        display: block;
+    }
+
+    /* Wide: text left, book right */
+    .wide body, body.wide {
+        width: 1280px;
+        height: 720px;
+        padding: 0 90px;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    .wide .book {
+        width: 397px;   /* 794 × 0.5 */
+        height: 562px;
+        transform: perspective(1400px) rotateY(-14deg);
+    }
+
+    .wide .book iframe { transform: scale(0.5); }
+
+    .wide .text { max-width: 640px; }
+
+    .wide h1 {
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+    }
+
+    .wide h1 span {
+        background: linear-gradient(135deg, #818cf8 0%, #c084fc 55%, #f472b6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .wide p {
+        margin-top: 22px;
+        font-size: 24px;
+        color: #cbd5e1;
+        line-height: 1.4;
+    }
+
+    .chips {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .chips span {
+        padding: 9px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    /* Square: book centred */
+    body.square {
+        width: 600px;
+        height: 600px;
+        justify-content: center;
+    }
+
+    .square .book {
+        width: 318px;   /* 794 × 0.4 */
+        height: 449px;
+        transform: perspective(1200px) rotateY(-12deg);
+    }
+
+    .square .book iframe { transform: scale(0.4); }
+
+    .square .text { display: none; }
+</style>
+</head>
+<body>
+    <div class="text">
+        <h1>Your First<br><span>Digital Product</span></h1>
+        <p>Create, launch and sell on Gumroad — step by step, even with no audience.</p>
+        <div class="chips">
+            <span>10 chapters</span>
+            <span>30-day plan</span>
+            <span>3 worksheets</span>
+        </div>
+    </div>
+    <div class="book"><iframe src="cover.html" title="Book cover"></iframe></div>
+
+    <script>
+        const mode = new URLSearchParams(location.search).get('mode') || 'wide';
+        document.body.classList.add(mode);
+    </script>
+</body>
+</html>
