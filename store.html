@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boutique de produits numériques — achat sécurisé via Gumroad.">
+    <title>Boutique | Produits numériques</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/store.css">
+</head>
+<body class="store-page">
+
+    <!-- Background Elements -->
+    <div class="background-orb orb-1"></div>
+    <div class="background-orb orb-2"></div>
+    <div class="background-orb orb-3"></div>
+
+    <nav class="store-nav">
+        <a href="store.html" class="store-brand" id="storeBrand">Boutique</a>
+        <div class="store-nav-links">
+            <a href="index.html" class="auth-link">Se connecter</a>
+            <a href="#" class="nav-btn" id="gumroadProfileLink" target="_blank" rel="noopener">Voir sur Gumroad</a>
+        </div>
+    </nav>
+
+    <main class="store-main">
+        <header class="store-hero fade-in">
+            <div class="store-avatar" id="storeAvatar"></div>
+            <h1 id="storeName"></h1>
+            <p id="storeBio"></p>
+        </header>
+
+        <section class="store-toolbar fade-in">
+            <input type="search" id="productSearch" class="form-input" placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+            <div class="filter-chips" id="filterChips" role="group" aria-label="Filtrer par catégorie"></div>
+        </section>
+
+        <section class="product-grid" id="productGrid"></section>
+
+        <p class="empty-state" id="emptyState" hidden>Aucun produit ne correspond à votre recherche.</p>
+    </main>
+
+    <footer class="store-footer">
+        <p>Paiement sécurisé par <a href="https://gumroad.com" class="auth-link" target="_blank" rel="noopener">Gumroad</a></p>
+    </footer>
+
+    <!-- Products are rendered first, then Gumroad's script turns product links into an overlay checkout -->
+    <script src="assets/js/store.js"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
